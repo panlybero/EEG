@@ -125,10 +125,11 @@ if __name__ == "__main__":
             checksumAccumulator = 0
          
          lastByte = latestByte
-      print(freshPacket)
-      if freshPacket:
-         print(parsedData)
-         pass
+         
+         print(freshPacket)
+         if freshPacket:
+            print(parsedData)
+            pass
 
 
 
