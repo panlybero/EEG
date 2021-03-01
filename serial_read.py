@@ -18,7 +18,8 @@ def parsePacket(packetData):
    eeg_power = np.zeros((EEG_POWER_BANDS,))
 
    print(packetData)
-   for i in range(len(packetData)):
+   i=0
+   while i< len(parsedData):
       p = packetData[i]
       
       if p ==2:
@@ -50,7 +51,7 @@ def parsePacket(packetData):
       else:
          print("bad parse data Error")
          parseSuccess = False
-
+      i+=1
    return parseSuccess,data
 
 
@@ -132,6 +133,7 @@ if __name__ == "__main__":
          
          if freshPacket:
             print(parsedData)
+            
             pass
 
 
