@@ -92,7 +92,7 @@ if __name__ == "__main__":
             if packetIndex == 0:
                packetLength = latestByte
                packetData = np.zeros((packetLength,))
-            
+               print(packetLength)
                if packetLength > MAX_PACKET_LENGTH:
                   print("Packet too long")
                   inPacket = False
