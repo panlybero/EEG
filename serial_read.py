@@ -32,9 +32,9 @@ def parsePacket(packetData):
       elif p == 131:
          i+=1
          for j in range(EEG_POWER_BANDS):
-            a = np.uint32(packetData[i+1]<<16)
+            a = np.uint32(packetData[i+1])<<16
             i+=1
-            b = np.uint32(packetData[i+1]<<8)
+            b = np.uint32(packetData[i+1])<<8
             i+=1
             c = np.uint32(packetData[i+1])
             i+=1
