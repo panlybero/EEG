@@ -112,6 +112,7 @@ if __name__ == "__main__":
                   else:
                      print("Could Not Parse")
                else:
+                  print(parsedData)
                   print("Checksum Error")
                
 
