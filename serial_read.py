@@ -21,7 +21,7 @@ def parsePacket(packetData):
    i=0
    while i< len(packetData):
       p = packetData[i]
-      
+      print(i)
       if p ==2:
          data["signal_quality"] = packetData[i+1]
          i+=1
