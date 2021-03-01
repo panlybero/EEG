@@ -43,7 +43,7 @@ class EEGReceiver:
         self.fresh_data = False
         print("here")
         #received = self.s.recv(4096)
-        BUFF_SIZE   =4096
+        BUFF_SIZE   =4096*4
         data = b''
         while True:
             part = self.s.recv(BUFF_SIZE)
