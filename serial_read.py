@@ -126,7 +126,6 @@ if __name__ == "__main__":
          
          lastByte = latestByte
          
-         print(freshPacket)
          if freshPacket:
             print(parsedData)
             pass
