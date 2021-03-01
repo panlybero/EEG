@@ -5,8 +5,8 @@ from EEGReceiver import *
 
 if __name__ == "__main__":
     manager = ComponentManager()
-    manager.addComponent("UIRenderer", UIRenderer())
-    manager.addComponent("EEGReceiver",EEGReceiver())
+    manager.addComponent("UIRenderer", UIRenderer(manager))
+    manager.addComponent("EEGReceiver",EEGReceiver(manager))
     frame = np.zeros((640,480,3))
     while True:
         try:

@@ -145,7 +145,7 @@ if __name__ == "__main__":
 
             msg = json.dumps(parsedData).encode()
 
-            clientsocket.sendall(msg)
+            clientsocket.send(msg)
 
             parsedData = None
             freshPacket = False

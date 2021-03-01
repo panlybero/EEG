@@ -36,14 +36,24 @@ class EEGReceiver:
         return self.fresh_data
 
     def quit(self):
-        self.s.shutdown(socket.SHUT_RDWR)
+        self.s.close()
         return 
 
     def _threaded_update(self):
         self.fresh_data = False
-        received = self.s.recv(1024)
-        received = received.decode("utf-8")
-        print(received)
+        print("here")
+        #received = self.s.recv(4096)
+        BUFF_SIZE   =4096
+        data = b''
+        while True:
+            part = self.s.recv(BUFF_SIZE)
+            data += part
+            if len(part) < BUFF_SIZE:
+                # either 0 or end of data
+                break
+        data_dict = json.loads(data)
+        #received = received.decode("utf-8")
+        print(data_dict)
 
         self.fresh_data = True
     
