@@ -104,7 +104,7 @@ if __name__ == "__main__":
             elif packetIndex> packetLength:
                checksum = latestByte
                
-               checksumAccumulator = 255 - checksumAccumulator
+               checksumAccumulator = np.uint8(255 - checksumAccumulator)
                print(checksum, checksumAccumulator)
                if checksum == checksumAccumulator:
                   parseSuccess, parsedData = parsePacket()
