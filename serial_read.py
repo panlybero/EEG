@@ -134,6 +134,7 @@ if __name__ == "__main__":
             print("Signal",parsedData['signal_quality'])
             print("Attention",parsedData['attention'])
             print("Relaxation",parsedData['meditation'])
+            print("Power",parsedData['power'])
             parsedData = None
             freshPacket = False
             pass
