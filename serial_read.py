@@ -19,7 +19,7 @@ def parsePacket(packetData):
 
    print(packetData)
    i=0
-   while i< len(parsedData):
+   while i< len(packetData):
       p = packetData[i]
       
       if p ==2:
