@@ -17,11 +17,11 @@ def parsePacket(packetData):
    data = {}
    eeg_power = np.zeros((EEG_POWER_BANDS,))
 
-   print(packetData)
+   #print(packetData)
    i=0
    while i< len(packetData):
       p = packetData[i]
-      print(i)
+      
       if p ==2:
          data["signal_quality"] = packetData[i+1]
          i+=1
@@ -107,7 +107,7 @@ if __name__ == "__main__":
                checksum = latestByte
                
                checksumAccumulator = np.uint8(255 - checksumAccumulator)
-               print(checksum, checksumAccumulator)
+               
                if checksum == checksumAccumulator:
                   parseSuccess, parsedData = parsePacket(packetData)
                   
@@ -116,7 +116,6 @@ if __name__ == "__main__":
                   else:
                      print("Could Not Parse")
                else:
-                  print(parsedData)
                   print("Checksum Error")
                
 
