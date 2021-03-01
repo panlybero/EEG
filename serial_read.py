@@ -76,7 +76,7 @@ if __name__ == "__main__":
    packetLength = 0
    
    packetData = None
-   checksumAccumulator =0
+   checksumAccumulator = np.uint8(0)
    freshPacket = False
 
    parsedData = None
@@ -85,7 +85,7 @@ if __name__ == "__main__":
 
       x=ser.read(1)
       try:
-         latestByte = int.from_bytes(x, byteorder='small')
+         latestByte = int.from_bytes(x, byteorder='big')
 
          
          if inPacket:
@@ -103,6 +103,7 @@ if __name__ == "__main__":
 
             elif packetIndex> packetLength:
                checksum = latestByte
+               
                checksumAccumulator = 255 - checksumAccumulator
                print(checksum, checksumAccumulator)
                if checksum == checksumAccumulator:
