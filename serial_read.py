@@ -17,9 +17,10 @@ def parsePacket(packetData):
    data = {}
    eeg_power = np.zeros((EEG_POWER_BANDS,))
 
+   print(packetData)
    for i in range(len(packetData)):
       p = packetData[i]
-
+      
       if p ==2:
          data["signal_quality"] = packetData[i+1]
          i+=1
@@ -44,7 +45,7 @@ def parsePacket(packetData):
          hasPower = True
       elif p ==128:
          i+=1
-         rawValue = int(packetData[i+1])<<8 | packetData[i+2]
+         rawValue = int(packetData[i+1])<<8 | int(packetData[i+2])
          i+=2
       else:
          print("bad parse data Error")
