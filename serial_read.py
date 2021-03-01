@@ -130,11 +130,11 @@ if __name__ == "__main__":
          
          lastByte = latestByte
          
-         if freshPacket:
+         if freshPacket and parsedData is not None:
             print("Signal",parsedData['signal_quality'])
             print("Attention",parsedData['attention'])
             print("Relaxation",parsedData['meditation'])
-            
+            parsedData = None
             freshPacket = False
             pass
 
