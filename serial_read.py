@@ -85,7 +85,7 @@ if __name__ == "__main__":
 
       x=ser.read(1)
       try:
-         latestByte = int.from_bytes(x, byteorder='big')
+         latestByte = int.from_bytes(x, byteorder='small')
 
          
          if inPacket:
