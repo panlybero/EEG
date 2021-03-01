@@ -107,7 +107,7 @@ if __name__ == "__main__":
                checksumAccumulator = np.uint8(255 - checksumAccumulator)
                print(checksum, checksumAccumulator)
                if checksum == checksumAccumulator:
-                  parseSuccess, parsedData = parsePacket()
+                  parseSuccess, parsedData = parsePacket(packetData)
                   
                   if parseSuccess:
                      freshPacket= True
