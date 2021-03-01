@@ -131,8 +131,9 @@ if __name__ == "__main__":
          lastByte = latestByte
          
          if freshPacket:
-            print(parsedData)
-            
+            print("Signal",parsedData['signal_quality'])
+            print("Attention",parsedData['attention'])
+            print("Relaxation",parsedData['meditation'])
             pass
 
 
