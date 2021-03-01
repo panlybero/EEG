@@ -3,7 +3,8 @@ import time
 import serial
 import base64 as b64
 import numpy as np
-
+import socket
+import json
 
 EEG_POWER_BANDS = 8
 MAX_PACKET_LENGTH = 32
@@ -60,6 +61,12 @@ def parsePacket(packetData):
 
 
 if __name__ == "__main__":
+
+   HOST = '10.0.0.159'  # Standard loopback interface address (localhost)
+   PORT = 8089
+   clientsocket=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+   clientsocket.connect((HOST,PORT))
+
 
    ser = serial.Serial(
          port='/dev/serial0',
@@ -135,6 +142,11 @@ if __name__ == "__main__":
             print("Attention",parsedData['attention'])
             print("Relaxation",parsedData['meditation'])
             print("Power",parsedData['power'])
+
+            msg = json.dumps(parsedData).encode()
+
+            clientsocket.sendall(msg)
+
             parsedData = None
             freshPacket = False
             pass
